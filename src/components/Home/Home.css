@@ -1,0 +1,14 @@
+.bg{
+    background-image: url(../../assets/img/masala-bg.jpg);
+    width: 100%;
+    height: 70vh;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-overlay{
+    width: 100%;
+    height: 70vh;
+    background-color: rgba(0,0,0,0.5);
+}

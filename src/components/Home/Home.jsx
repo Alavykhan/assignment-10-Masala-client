@@ -1,5 +1,7 @@
 import React from 'react';
 import './Home.css';
+import Marquee from "react-fast-marquee";
+import Chefs from '../Chefs/Chefs';
 const Home = () => {
     return (
         <div>
@@ -10,6 +12,10 @@ const Home = () => {
                 <button className='btn font-bold md:px-10 md:text-lg'>Explore</button>
                 </div>
             </div>
+            <Marquee className='text-black font-bold uppercase text-6xl my-6 py-4'>
+            Indian Best food Recipes 🍛
+            </Marquee>
+            <Chefs/>
         </div>
     );
 };

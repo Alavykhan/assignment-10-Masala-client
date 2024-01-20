@@ -2,6 +2,10 @@ import React from 'react';
 import './Home.css';
 import Marquee from "react-fast-marquee";
 import Chefs from '../Chefs/Chefs';
+import IndianChef from '../IndianChef/IndianChef';
+import MasalaSwiper from '../MasalaSwiper/MasalaSwiper';
+
+
 const Home = () => {
     return (
         <div>
@@ -12,10 +16,12 @@ const Home = () => {
                 <button className='btn font-bold md:px-10 md:text-lg'>Explore</button>
                 </div>
             </div>
-            <Marquee className='text-black font-bold uppercase text-6xl my-6 py-4'>
+            <Marquee className='text-white font-bold bg-black uppercase text-6xl py-4'>
             Indian Best food Recipes 🍛
             </Marquee>
+            <IndianChef/>
             <Chefs/>
+            <MasalaSwiper/>
         </div>
     );
 };

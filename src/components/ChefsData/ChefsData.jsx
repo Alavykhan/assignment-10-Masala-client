@@ -1,8 +1,9 @@
 import React from 'react';
 import { HandThumbUpIcon } from '@heroicons/react/24/solid'
+import Recipes from '../Recipes/Recipes';
 
 const ChefsData = ({chef}) => {
-    const {name, id, img, experience, recipes, likes} = chef
+    const {name, id, img, experience, recipes, likes, chefRecipes} = chef
     return (
         <div>
             <div className="card w-96 bg-base-100 shadow-xl mb-20">
@@ -17,6 +18,10 @@ const ChefsData = ({chef}) => {
                 </div>
             </div>
             </div>
+            {/* {
+                chefRecipes.map(recipe=><Recipes
+                recipe={recipe}></Recipes>)
+            } */}
         </div>
     );
 };

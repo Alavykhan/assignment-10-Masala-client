@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import { FaUser } from "react-icons/fa";
 
 const Header = () => {
     const {logOut, user} = useContext(AuthContext);
@@ -35,7 +36,7 @@ const Header = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        user? <button onClick={handleLogOut} className="btn btn-active btn-neutral mx-5">Logout</button> : <Link to='/login'><button className="btn btn-active btn-neutral mx-5">Login</button></Link> 
+                        user? <div className='flex items-center text-2xl'> <FaUser /><button onClick={handleLogOut} className="btn btn-active btn-neutral mx-5">Logout</button></div> : <Link to='/login'><button className="btn btn-active btn-neutral mx-5">Login</button></Link> 
                     }
                 </div>
         </div>

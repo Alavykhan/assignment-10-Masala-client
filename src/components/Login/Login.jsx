@@ -5,7 +5,7 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
-  const {signIn} = useContext(AuthContext)
+  const {signIn, googleSignIn, githubSignIn} = useContext(AuthContext)
 
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
@@ -46,6 +46,35 @@ const Login = () => {
       console.log(error);
     })
   }
+
+  // google signIn
+  const handleGoogle = ()=>{
+    googleSignIn()
+    .then(result=>{
+      const loggedIn = result.user;
+      console.log(loggedIn);
+    })
+    .catch(error=>{
+      console.log(error.message);
+    })
+  }
+
+
+
+
+  // github signIn
+  const handleGithub =()=>{
+    githubSignIn()
+    .then(result=>{
+      const gitSign = result.user;
+      console.log(gitSign);
+    })
+    .catch(error=>{
+      console.log(error.message);
+    })
+  }
+
+
     return (
         <div className='login'>
         <div className="login-img flex justify-center items-center">
@@ -68,8 +97,8 @@ const Login = () => {
             <button className="btn btn-primary">Login</button>
           </div>
           <p className='mb-4'>Don't have an account? Please <Link className='text-primary font-bold' to='/register'>Register</Link></p>
-          <button className="btn btn-outline btn-primary"><FaGoogle /> Login with Google</button>
-          <button className="btn btn-outline"><FaGithub /> Login with Github</button>
+          <button onClick={handleGoogle} className="btn btn-outline btn-primary"><FaGoogle /> Login with Google</button>
+          <button onClick={handleGithub} className="btn btn-outline"><FaGithub /> Login with Github</button>
         </form>
           <p className='text-red-500'>{error}</p>
           <p className='text-green-400'>{success}</p>

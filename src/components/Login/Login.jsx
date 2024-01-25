@@ -18,8 +18,33 @@ const Login = () => {
     console.log(email, password);
 
     // password validation
-    if(password){}
+    if(!/(?=.*[A-Z]).*$/.test(password)){
+      setError('your password need a capital latter')
+      return 
+    }else if(!/(?=.*[0-9]).*$/.test(password)){
+      setError('your password needs a number')
+      return
+    }else if(!/(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).*$/.test(password)){
+      setError('your password needs a special character')
+      return
+    }else if(password.length<6){
+      setError('your password should be at least 6 characters')
+      return
+    }
 
+  // firebase login 
+    signIn(email, password)
+    .then(result=>{
+      const signedIn = result.user;
+      setError('')
+      console.log(signedIn);
+      setSuccess('successfully sign in')
+      form.reset()
+    })
+    .catch(error=>{
+      setError(error.message)
+      console.log(error);
+    })
   }
     return (
         <div className='login'>
@@ -46,7 +71,8 @@ const Login = () => {
           <button className="btn btn-outline btn-primary"><FaGoogle /> Login with Google</button>
           <button className="btn btn-outline"><FaGithub /> Login with Github</button>
         </form>
-
+          <p className='text-red-500'>{error}</p>
+          <p className='text-green-400'>{success}</p>
       </div>
         </div>
     </div>

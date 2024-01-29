@@ -1,0 +1,9 @@
+a.active{
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+ul a{
+    font-size: large;
+    font-weight: 500;
+}

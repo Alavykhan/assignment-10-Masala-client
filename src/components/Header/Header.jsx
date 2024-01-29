@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { FaUser } from "react-icons/fa";
+import './Header.css';
 
 const Header = () => {
     const {logOut, user} = useContext(AuthContext);
@@ -29,9 +30,42 @@ const Header = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 gap-5">
-                    <Link to='/' className='text-lg font-bold'>Home</Link>
-                       <Link to='' className='text-lg font-bold'>Blog</Link>
-                       <Link to='/register' className='text-lg font-bold'>Register</Link>
+                   <NavLink
+                    to='/'
+                    className={({ isActive, isPending }) =>
+                      isActive
+                        ? "active"
+                        : isPending
+                        ? "pending"
+                        : ""
+                    }
+                  >
+                    Home
+                  </NavLink>
+                    <NavLink
+                    to='/blog'
+                    className={({ isActive, isPending }) =>
+                      isActive
+                        ? "active"
+                        : isPending
+                        ? "pending"
+                        : ""
+                    }
+                  >
+                    Blog
+                  </NavLink>
+                    <NavLink
+                    to='/register'
+                    className={({ isActive, isPending }) =>
+                      isActive
+                        ? "active"
+                        : isPending
+                        ? "pending"
+                        : ""
+                    }
+                  >
+                    Register
+                  </NavLink>
                     </ul>
                 </div>
                 <div className="navbar-end">

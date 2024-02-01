@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBKdPfHwA6b8ixYh-hiYYp6EeeaIrgqbKw",
-  authDomain: "masala-client.firebaseapp.com",
-  projectId: "masala-client",
-  storageBucket: "masala-client.appspot.com",
-  messagingSenderId: "834820868676",
-  appId: "1:834820868676:web:29f277e687f613f6b54a11"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase
